@@ -26,14 +26,19 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = 'Question'
+            subject = 'Email Inquery'
             body = {
                 'full_name': form.cleaned_data['full_name'],
                 'subject': form.cleaned_data['subject'],
                 'email_address': form.cleaned_data['email_address'],
                 'message': form.cleaned_data['message'],
             }
-            message = "\n".join(body.values())
+            message = f"""
+            From: {body['full_name']}\n
+            Subject: {body['subject']}\n
+            Email address: {body['email_address']}\n
+            Message: {body['message']}\n
+            """
             conn = get_connection('django.core.mail.backends.smtp.EmailBackend')
             send_mail(subject, message, body['email_address'], ['emiliyawoodart@gmail.com'], fail_silently=False, connection=conn)
             return HttpResponseRedirect('/contact?submitted=True')

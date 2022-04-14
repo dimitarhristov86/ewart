@@ -9,11 +9,21 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+import csv
 import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# PROJECT_ROOT = Path().parent.parent.parent
+# config_file_root = f'{PROJECT_ROOT}/config.csv'
+# csv config_file read
+with open('config.csv', newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        email = row['email']
+        password = row['password']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -129,6 +139,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'emiliyawoodart@gmail.com'
-EMAIL_HOST_PASSWORD = 'Ei761103'
+EMAIL_HOST_USER = email
+EMAIL_HOST_PASSWORD = password
 
