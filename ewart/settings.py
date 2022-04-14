@@ -16,8 +16,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# PROJECT_ROOT = Path().parent.parent.parent
-# config_file_root = f'{PROJECT_ROOT}/config.csv'
+
 # csv config_file read
 with open('config.csv', newline="") as f:
     reader = csv.DictReader(f)
