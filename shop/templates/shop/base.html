@@ -5,18 +5,17 @@
     <meta charset="utf-8" />
     <title>Emiliya's Wood Art</title>
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="icon" href="media/favicon.png">
 </head>
 <body>
     <div id="header">
       <a href="/" class="logo">Emiliya's Wood Art</a>
     </div>
-    <div id="navbar" style="position:absolute;right:60px;top:30px;list-style-type:none" >
-        <li><a href="/contact"
-               style="background-color:#5993bb;color:white;font-weight:bold;font-size:20px">Contact us</a></li>
-        <li><a href="/"
-               style="position:absolute;right:1230px;top:-5px;background-color:#5993bb;color:white;font-weight:bold;font-size:20px">Home</a></li></li>
+    <div class="topnav" >
+        <a class="active"></a>
+        <a href="/" style="background-color:#5993bb;float:left;">Home</a>
+        <a href="/contact" style="background-color:#5993bb;float:right;">Contact us</a>
     </div>
-
 <div id="content">
 {% block content %}
 {% endblock %}
