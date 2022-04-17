@@ -4,23 +4,29 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif;
-    background-image:url();
+    background-image:url('background-image.jpg');
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size:100% 100%;
 }
 
 h1, h2, h3, h4, h5 , h6 {
-    font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:normal; font-style:italic
+    font-family:'https://www.1001fonts.com/ubuntu-font.html';
+    font-weight:normal;
+    font-style:italic;
+    color:#2e4236;
+
 }
 
 a {
+    font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:bold;
     text-decoration:none;
-    color:#5993bb;
+    color:#2e4236;
+    font-size:18px
 }
 
 a:hover {
-    color:#77b6e2;
+    color:#000;
 }
 
 a.button, input[type="submit"] {
@@ -35,6 +41,9 @@ a.button, input[type="submit"] {
 a.button.light {
     color:#666;
     background:#ededed;
+}
+p {
+    font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:bold;
 }
 
 .text-left {
@@ -53,13 +62,13 @@ table {
 
 table th, table td {
     text-align:left;
-    font-size:14px;
+    font-size:16px;
     padding:10px;
     margin:0;
 }
 
 tbody tr:nth-child(odd) {
-    background:#efefef;
+
 }
 
 tbody tr.subtotal {
@@ -95,7 +104,7 @@ form p label, form p input {
 }
 
 form p label {
-    font-size:14px;
+    font-size:20px;
     padding-bottom:4px;
 }
 
@@ -134,12 +143,11 @@ ul.errorlist {
 }
 
 #header .logo {
-    font-family: 'https://www.1001fonts.com/ubuntu-font.html';
-    font-style:italic;
+    font-family:'Allura', cursive;
     font-weight:bold;
     float:left;
-    color:#5993bb;
-    font-size:32px;
+    color:#1c0d02;;
+    font-size:52px;
     margin-right:10%;
 }
 
@@ -175,7 +183,6 @@ ul.errorlist {
 }
 
 #sidebar ul li.selected {
-    background:#5993bb;
     border-radius:4px;
 }
 
@@ -201,6 +208,10 @@ ul.errorlist {
 .product-list .item img {
     width:100%;
     margin-bottom:8px;
+    border: 3px solid #000;
+    border-radius: 50px;
+    padding: 5px;
+
 }
 
 .product-detail {
@@ -217,6 +228,12 @@ ul.errorlist {
     width:40%;
     float:left;
     padding:0 20px 20px 0;
+    margin-bottom:8px;
+    border: 3px solid #000;
+    border-radius: 50px;
+    padding: 5px;
+
+}
 }
 
 .product-detail h1 {
@@ -225,6 +242,10 @@ ul.errorlist {
 
 .product-detail h2 {
     margin-top:10px;
+}
+
+.product-detail p {
+    font-size:20px
 }
 
 .order-form {
@@ -356,5 +377,15 @@ form div.field {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  color: white;
+  color: #fff;
 }
+
+.footer {
+    font-family:'Allura', cursive;
+    font-weight:normal;
+    color:#2e4236;
+    position:fixed;
+    bottom:0px;
+    left:555px;
+    font-size:25px;
+    }

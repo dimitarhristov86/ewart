@@ -10,16 +10,22 @@
 <body>
     <div id="header">
       <a href="/" class="logo">Emiliya's Wood Art</a>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+        </style>
     </div>
     <div class="topnav" >
         <a class="active"></a>
-        <a href="/" style="background-color:#5993bb;float:left;">Home</a>
-        <a href="/contact" style="background-color:#5993bb;float:right;">Contact us</a>
+        <a href="/" style="float:left;">Home</a>
+        <a href="/contact" style="float:left;">Contact us</a>
     </div>
 <div id="content">
 {% block content %}
 {% endblock %}
 </div>
+    <div class="footer">
+        <footer>&copy; Designed by Dimitar Hristov 2022</footer>
+    </div>
 </body>
 </html>
 
