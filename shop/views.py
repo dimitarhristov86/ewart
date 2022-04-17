@@ -40,7 +40,7 @@ def contact(request):
             Message: {body['message']}\n
             """
             conn = get_connection('django.core.mail.backends.smtp.EmailBackend')
-            send_mail(subject, message, body['email_address'], ['emiliyawoodart@gmail.com'], fail_silently=False,
+            send_mail(subject, message, body['email_address'], ['emiliyasart@gmail.com'], fail_silently=False,
                       connection=conn)
             return HttpResponseRedirect('/contact?submitted=True')
     else:
@@ -48,6 +48,10 @@ def contact(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'shop/contact.html', {'form': form, 'submitted': submitted})
+
+
+def about_us(request):
+    return render(request, 'shop/about_us.html', {})
 
 
 

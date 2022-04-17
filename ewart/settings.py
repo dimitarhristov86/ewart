@@ -18,7 +18,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # csv config_file read
-with open('config.csv', newline="") as f:
+with open('./config.csv', newline="") as f:
     reader = csv.DictReader(f)
     for row in reader:
         email = row['email']
