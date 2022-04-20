@@ -34,9 +34,9 @@ with open('./config.csv', newline="") as f:
 SECRET_KEY = 'django-insecure-tmj8eo6wiutsk57mitd6i!2jq9m6#^7*8+mmw5-4vs_d9mq15h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
