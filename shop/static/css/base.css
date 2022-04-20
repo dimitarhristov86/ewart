@@ -14,14 +14,14 @@ h1, h2, h3, h4, h5 , h6 {
     font-family:'https://www.1001fonts.com/ubuntu-font.html';
     font-weight:normal;
     font-style:italic;
-    color:#2e4236;
+    color:#1c0d02;
 
 }
 
 a {
     font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:bold;
     text-decoration:none;
-    color:#2e4236;
+    color:#1c0d02;
     font-size:18px
 }
 
@@ -31,7 +31,7 @@ a:hover {
 
 a.button, input[type="submit"] {
     color:#fff;
-    background:#5993bb;
+    background:#000;
     border-radius:4px;
     padding:10px 20px;
     font-size:14px;
@@ -76,7 +76,7 @@ tbody tr.subtotal {
 }
 
 thead th, tbody tr.total {
-    background:#5993bb;
+    background:;
     color:#fff;
     font-weight:bold;
 }
