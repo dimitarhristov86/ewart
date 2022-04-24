@@ -34,9 +34,9 @@ with open('./config.csv', newline="") as f:
 SECRET_KEY = 'django-insecure-tmj8eo6wiutsk57mitd6i!2jq9m6#^7*8+mmw5-4vs_d9mq15h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'emiliyasart.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -59,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'ewart.urls'
@@ -129,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -145,5 +144,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = email
 EMAIL_HOST_PASSWORD = password
 
-django_on_heroku.settings(locals())
 
