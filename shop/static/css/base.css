@@ -147,7 +147,7 @@ ul.errorlist {
     font-weight:bold;
     float:left;
     color:#1c0d02;
-    font-size:52px;
+    font-size:54px;
     margin-right:10%;
 }
 
@@ -162,7 +162,7 @@ ul.errorlist {
 }
 
 #sidebar {
-    width:220px;
+    width:240px;
     padding:30px 20px 0 0;
     float:left;
 }
@@ -211,17 +211,10 @@ ul.errorlist {
     border: 3px solid #000;
     border-radius: 50px;
     padding: 5px;
-
 }
 
 .product-detail {
     text-align:justify;
-}
-
-.product-detail .price {
-    color:#333;
-    font-size:28px;
-    font-weight:bold;
 }
 
 .product-detail img {
@@ -234,7 +227,6 @@ ul.errorlist {
     padding: 5px;
 
 }
-}
 
 .product-detail h1 {
     margin-bottom:0;
@@ -246,42 +238,6 @@ ul.errorlist {
 
 .product-detail p {
     font-size:20px
-}
-
-.order-form {
-    float:left;
-}
-
-.order-info {
-    float:right;
-    width:300px;
-    background:#efefef;
-    padding:10px 20px;
-    color:#333;
-    border-bottom:4px solid #5993bb;
-}
-
-.order-info h3 {
-    color:#5993bb;
-}
-
-.order-info ul li {
-    margin:0;
-    padding:0;
-    font-size:14px;
-}
-
-.order-info p {
-    font-weight:bold;
-    float:right;
-}
-
-.order-info span {
-    float:right;
-}
-
-.neg {
-    color:#dc1616;
 }
 
 .languages {
@@ -324,24 +280,6 @@ ul.errorlist {
     clear:both;
 }
 
-.recommendations.cart {
-    width:60%;
-    float:left;
-    overflow:auto;
-}
-
-.recommendations.cart h3 {
-    margin-top:0;
-}
-
-.recommendations.cart .item {
-    margin-right:10px;
-}
-
-.recommendations.cart img {
-    width:120px;
-}
-
 /* braintree hosted fields */
 form div.field {
     font-size:13px;
@@ -380,11 +318,21 @@ form div.field {
   color: #fff;
 }
 
-.footer {
-    font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:bold;
-    color:#2e4236;
+footer {
+    font-family:'Allura', cursive;
+    font-weight:normal;
+    color:#1c0d02;
     position:fixed;
-    bottom:0px;
-    left:555px;
-    font-size:16px;
+    top:25px;
+    right:50px;
+    font-size:30px;
     }
+
+marquee {
+     width: 100%;
+     height: 10%;
+     padding: 10px 0;
+     background-color: #333333;
+     font-family: sans-serif;
+     color: white;
+     }
