@@ -12,20 +12,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import csv
 import os.path
-import django_on_heroku
-import dj_database_url
-from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# csv config_file read
-with open('./config.csv', newline="") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        email = row['email']
-        password = row['password']
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -128,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -142,7 +134,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = email
-EMAIL_HOST_PASSWORD = password
+EMAIL_HOST_USER = 'emiliyasart@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ei761103'
 
 
