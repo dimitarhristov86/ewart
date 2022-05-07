@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" style="font-size:18px;color:#1c0d02;background-color:#90a693;">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4" style="margin-bottom:20px;">Registration Form</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted" style="font-size:15px;background-color:#fff;text-decoration:underline;">
+                Already Have An Account? <a class="ml-2" href="/sign_in">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
