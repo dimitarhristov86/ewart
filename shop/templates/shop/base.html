@@ -19,11 +19,23 @@
     <marquee direction="scroll">Website in development.</marquee>
 </body>
 <div class="topnav">
-    <a class="active"></a>
-    <a href="/" style="float:left;">Home</a>
-    <a href="/about_us" style="float:left;">About us</a>
-    <a href="/contact" style="float:left;">Contact us</a>
-    <a href="/register" style="float:right;">Sign Up</a>
+    {% if user.is_authenticated %}
+        <a class="active"></a>
+        <a href="/" style="float:left;">Home</a>
+        <a href="/about_us" style="float:left;">About us</a>
+        <a href="/contact" style="float:left;">Contact us</a>
+        <a href="/logout" style="float:right;">Log Out</a>
+        <a href="/profile" style="float:right;">Profile</a>
+        <p style="float:right;color:#fff; text-decoration:underline;margin:13px">
+            Welcome {{ user.username }}</p>
+    {% else %}
+        <a class="active"></a>
+        <a href="/" style="float:left;">Home</a>
+        <a href="/about_us" style="float:left;">About us</a>
+        <a href="/contact" style="float:left;">Contact us</a>
+        <a href="/register" style="float:right;">Register</a>
+        <a href="/login" style="float:right;">Log In</a>
+    {% endif %}
 </div>
 <div id="content">
     {% if messages %}

@@ -139,4 +139,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'emiliyasart@gmail.com'
 EMAIL_HOST_PASSWORD = 'Ei761103'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login'
 

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import ContactForm, UserRegisterForm
 from .models import Category, Product
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def product_list(request, category_slug=None):
@@ -62,7 +63,12 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}! ')
-            return redirect('/')
+            return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
