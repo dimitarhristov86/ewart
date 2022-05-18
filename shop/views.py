@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail, get_connection
 from django.http import HttpResponseRedirect
-from .forms import ContactForm
+from .forms import ContactForm, UserRegisterForm
 from .models import Category, Product
+from django.contrib import messages
 
 
 def product_list(request, category_slug=None):
@@ -54,4 +55,14 @@ def about_us(request):
     return render(request, 'shop/about_us.html', {})
 
 
-
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}! ')
+            return redirect('/')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'users/register.html', {'form': form})

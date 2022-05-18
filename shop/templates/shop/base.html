@@ -23,13 +23,12 @@
     <a href="/" style="float:left;">Home</a>
     <a href="/about_us" style="float:left;">About us</a>
     <a href="/contact" style="float:left;">Contact us</a>
-    <a href="/register" style="float:right;">Register</a>
-    <a href="/sign_in" style="float:right;">Sign In</a>
+    <a href="/register" style="float:right;">Sign Up</a>
 </div>
 <div id="content">
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" style="color:#045919;float:right;font-size:25px;">{{ message }}</div>
+            <div class="alert alert-{{ message.tags }}" style="color:#045919;float:right;font-size:18px;">{{ message }}</div>
         {% endfor %}
     {% endif %}
     {% block content %}
