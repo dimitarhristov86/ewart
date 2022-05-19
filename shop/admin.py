@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Profile
+
+admin.site.register(Profile)
 
 
 @admin.register(Category)
