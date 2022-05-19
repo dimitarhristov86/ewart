@@ -26,8 +26,10 @@
         <a href="/contact" style="float:left;">Contact us</a>
         <a href="/logout" style="float:right;">Log Out</a>
         <a href="/profile" style="float:right;">Profile</a>
+        <img class="rounded-circle" src="{{ user.profile.image.url }}"
+             style="max-height:30px;width:30px;;border-radius: 50%;float:right;margin:10px;">
         <p style="float:right;color:#fff; text-decoration:underline;margin:13px">
-            Welcome {{ user.username }}</p>
+            Welcome: {{ user.username }}</p>
     {% else %}
         <a class="active"></a>
         <a href="/" style="float:left;">Home</a>
@@ -40,7 +42,7 @@
 <div id="content">
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" style="color:#045919;float:right;font-size:18px;">{{ message }}</div>
+            <div class="alert alert-{{ message.tags }}" style="background-color:white;color:#045919;float:right;font-size:18px;">{{ message }}</div>
         {% endfor %}
     {% endif %}
     {% block content %}
