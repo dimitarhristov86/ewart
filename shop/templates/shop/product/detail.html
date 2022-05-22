@@ -11,6 +11,11 @@
     {% static 'img/no_image.png' %}{% endif %}" width="900px" height="250px">
     <h1>{{ product.name }}</h1>
     <p>Price: ${{ product.price }}</p>
+    <form action="{% url 'shop:cart_add' product.id %}" method="POST">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+    </form>
     <p style="color:#045919;">{% if product.available %}On stock</p>{% else %}
         <p style="color:#380808;">Out of stock{% endif %}</p>
     <h2>

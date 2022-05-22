@@ -36,3 +36,11 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 2)]
+
+
+class CartAddProductForm(forms.Form):
+    quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
+    override = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)

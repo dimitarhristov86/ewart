@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail, get_connection
 from django.http import HttpResponseRedirect
-from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .cart import Cart
+from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CartAddProductForm
 from .models import Category, Product
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 
 
 def product_list(request, category_slug=None):
@@ -20,7 +22,9 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
-    return render(request, 'shop/product/detail.html', {'product': product})
+    cart_product_form = CartAddProductForm()
+
+    return render(request, 'shop/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
 
 
 def contact(request):
@@ -88,3 +92,27 @@ def profile(request):
         'p_form': p_form
     }
     return render(request, 'users/profile.html', context)
+
+# TODO: add_to_cart won't work.FIX IT!!!
+@require_POST
+def cart_add(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product, quantity=cd['quantity'], override_quantity=cd['override_quantity'])
+    return redirect('cart:cart_detail')
+
+
+@require_POST
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove(product)
+    return redirect('cart:cart_detail')
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    return render(request, 'shop/cart_detail.html', {'cart': cart})
