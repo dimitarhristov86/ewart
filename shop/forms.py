@@ -12,7 +12,12 @@ class ContactForm(forms.Form):
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
+    username = forms.CharField(max_length=150, help_text=None)
+    email = forms.EmailField(help_text='This field is required !')
+    password1 = forms.CharField(max_length=50, label='Password', help_text="Must be at least 8 characters long! ",
+                                widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
+    password2 = forms.CharField(max_length=50, label='Confirm Password', help_text='Must same as *Password field! ',
+                                widget=forms.PasswordInput(attrs={'placeholder': 'confirm password'}))
 
     class Meta:
         model = User
