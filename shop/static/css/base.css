@@ -61,7 +61,7 @@ table {
 }
 
 table th, table td {
-    text-align:left;
+
     font-size:16px;
     padding:15px;
     margin:5;
@@ -90,7 +90,7 @@ table.cart img {
 }
 
 tbody td.num {
-    text-align:right;
+
 }
 
 td input[type="submit"] {
@@ -135,11 +135,8 @@ ul.errorlist {
     overflow:auto;
 }
 
-#subheader {
-    background:#ececec;
-    color:#444;
-    padding:15px 100px;
-    overflow:auto;
+td {
+    color:#1c0d02
 }
 
 #header .logo {

@@ -38,7 +38,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['image']
 
 
-PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 2)]
+PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
 
 
 class CartAddProductForm(forms.Form):

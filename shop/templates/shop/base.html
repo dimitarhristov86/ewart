@@ -15,6 +15,21 @@
 <div class="footer">
     <footer>&copy; Designed by D.Hristov</footer>
 </div>
+<div id="subheader">
+    <div class="cart" style="float:right;background-color:#333333; color:#ffff; margin:10px;">
+       {% with total_items=cart|length %}
+       {% if total_items > 0 %}
+            Your cart:
+            <a href="{% url 'shop:cart_detail' %}" style="color:#ffff;">
+            {{ total_items }} item{{ total_items|pluralize }},
+            ${{ cart.get_total_price }}
+            </a>
+       {% else %}
+            Your cart is empty.
+       {% endif %}
+       {% endwith %}
+    </div>
+</div>
 <body>
     <marquee direction="scroll">Website in development.</marquee>
 </body>
