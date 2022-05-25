@@ -1,12 +1,26 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail, get_connection
 from django.http import HttpResponseRedirect
-from .cart import Cart
-from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CartAddProductForm
-from .models import Category, Product
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
+from .cart import Cart
+from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CartAddProductForm
+from .models import Category, Product
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'users/password_reset.html'
+    email_template_name = 'users/password_reset_email.html'
+    subject_template_name = 'users/subject_email.html'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = '/'
 
 
 def product_list(request, category_slug=None):
@@ -118,3 +132,5 @@ def cart_detail(request):
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'override': True})
     return render(request, 'shop/cart_detail.html', {'cart': cart})
+
+
