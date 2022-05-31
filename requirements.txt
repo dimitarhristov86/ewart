@@ -17,7 +17,7 @@ django-on-heroku==1.1.2
 favicon==0.7.0
 gunicorn==20.1.0
 idna==3.3
-kombu==5.2.4
+kombu==5.1.0
 Pillow==8.4.0
 prompt-toolkit==3.0.29
 psycopg2-binary==2.9.3
