@@ -32,8 +32,11 @@
         </a>
         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
         <p>Price: ${{ product.price }}</p>
-        <p style="color:#045919;">{% if product.available %}On stock</p>{% else %}
-        <p style="color:#380808;">Out of stock{% endif %}</p>
+        <p style="color:#045919;">
+            {% if product.available %}On stock</p>
+            {% else %}
+        <p style="color:#380808;">Out of stock
+            {% endif %}</p>
     </div>
     {% endfor %}
 </div>

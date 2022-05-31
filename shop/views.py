@@ -4,12 +4,12 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from .cart import Cart
-from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CartAddProductForm
-from .models import Category, Product
+from .forms import ContactForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CartAddProductForm, OrderCreateForm
+from .models import Category, Product, OrderItem
+from .tasks import order_created
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
@@ -134,3 +134,18 @@ def cart_detail(request):
     return render(request, 'shop/cart_detail.html', {'cart': cart})
 
 
+def order_create(request):
+    cart = Cart(request)
+    if request.method == "POST":
+        form = OrderCreateForm(request.POST)
+        if form.is_valid():
+            order = form.save()
+            for item in cart:
+                OrderItem.objects.create(order=order, product=item['product'],
+                                         price=item['price'], quantity=item['quantity'])
+                cart.clear()
+                order_created.delay(order.id)
+                return render(request, 'shop/created.html', {'order': order})
+    else:
+        form = OrderCreateForm()
+    return render(request, 'shop/create.html', {'cart': cart, 'form': form})

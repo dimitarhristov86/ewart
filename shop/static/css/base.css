@@ -19,14 +19,15 @@ h1, h2, h3, h4, h5 , h6 {
 }
 
 a {
-    font-family: 'https://www.1001fonts.com/ubuntu-font.html'; font-weight:bold;
+    font-family: 'https://www.1001fonts.com/ubuntu-font.html';
+    font-weight:bold;
     text-decoration:none;
     color:#1c0d02;
     font-size:18px
 }
 
 a:hover {
-    color:#000;
+    background-color:None;
 }
 
 a.button, input[type="submit"] {
@@ -183,8 +184,8 @@ td {
     border-radius:4px;
 }
 
-#sidebar ul li.selected a {
-    color:#fff;
+#sidebar ul li.selected a:hover {
+   background-color:None;
 }
 
 #main {
@@ -317,12 +318,9 @@ form div.field {
 
 footer {
     font-family:'Allura', cursive;
-    font-weight:normal;
-    color:#1c0d02;
-    position:fixed;
-    top:25px;
-    right:50px;
-    font-size:30px;
+    font-weight:bold;
+    font-size:20px;
+    position:center;
     }
 
 marquee {

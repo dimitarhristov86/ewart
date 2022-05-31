@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, Order
 
 
 class ContactForm(forms.Form):
@@ -36,7 +36,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = ['city', 'address', 'image']
 
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
@@ -45,3 +45,9 @@ PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
 class CartAddProductForm(forms.Form):
     quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
     override = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
+
+
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'email', 'address', 'postal_code', 'city']
