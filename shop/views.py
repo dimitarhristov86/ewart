@@ -143,8 +143,8 @@ def order_create(request):
             for item in cart:
                 OrderItem.objects.create(order=order, product=item['product'],
                                          price=item['price'], quantity=item['quantity'])
-                cart.clear()
                 order_created.delay(order.id)
+                cart.clear()
                 return render(request, 'shop/created.html', {'order': order})
     else:
         form = OrderCreateForm()
