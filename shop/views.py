@@ -37,8 +37,8 @@ def product_list(request, category_slug=None):
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
     cart_product_form = CartAddProductForm()
-
-    return render(request, 'shop/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
+    return render(request, 'shop/product/detail.html',
+                  {'product': product, 'cart_product_form': cart_product_form})
 
 
 def contact(request):
@@ -143,9 +143,9 @@ def order_create(request):
             for item in cart:
                 OrderItem.objects.create(order=order, product=item['product'],
                                          price=item['price'], quantity=item['quantity'])
-                order_created.delay(order.id)
-                cart.clear()
-                return render(request, 'shop/created.html', {'order': order})
+            cart.clear()
+            order_created(order.id)
+            return render(request, 'shop/created.html', {'order': order})
     else:
         form = OrderCreateForm()
     return render(request, 'shop/create.html', {'cart': cart, 'form': form})
